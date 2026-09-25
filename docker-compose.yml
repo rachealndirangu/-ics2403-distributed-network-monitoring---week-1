@@ -1,0 +1,57 @@
+version: "3.9"
+
+# Week 1 topology: 3 agent nodes (edge, edge, core) all push metrics to 1 collector.
+# All services share "monitor-net" so they can resolve each other by service name
+# (e.g. the agents reach the collector at http://collector:5000/metrics).
+
+services:
+  collector:
+    build: .
+    command: ["python", "collector.py"]
+    ports:
+      - "5000:5000"   # so you can hit http://localhost:5000/status from the host
+    networks:
+      - monitor-net
+
+  edge-node-a:
+    build: .
+    command: ["python", "agent.py"]
+    environment:
+      - NODE_ID=edge-node-a
+      - NODE_ROLE=edge
+      - COLLECTOR_URL=http://collector:5000/metrics
+      - REPORT_INTERVAL=2
+    depends_on:
+      - collector
+    networks:
+      - monitor-net
+
+  edge-node-b:
+    build: .
+    command: ["python", "agent.py"]
+    environment:
+      - NODE_ID=edge-node-b
+      - NODE_ROLE=edge
+      - COLLECTOR_URL=http://collector:5000/metrics
+      - REPORT_INTERVAL=2
+    depends_on:
+      - collector
+    networks:
+      - monitor-net
+
+  core-node:
+    build: .
+    command: ["python", "agent.py"]
+    environment:
+      - NODE_ID=core-node
+      - NODE_ROLE=core
+      - COLLECTOR_URL=http://collector:5000/metrics
+      - REPORT_INTERVAL=2
+    depends_on:
+      - collector
+    networks:
+      - monitor-net
+
+networks:
+  monitor-net:
+    driver: bridge
