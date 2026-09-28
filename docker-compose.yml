@@ -1,57 +1,66 @@
-version: "3.9"
-
-# Week 1 topology: 3 agent nodes (edge, edge, core) all push metrics to 1 collector.
-# All services share "monitor-net" so they can resolve each other by service name
-# (e.g. the agents reach the collector at http://collector:5000/metrics).
+version: '3.8'
 
 services:
-  collector:
+  cloud-server:
     build: .
-    command: ["python", "collector.py"]
+    container_name: cloud_server
+    command: python cloud_server.py
     ports:
-      - "5000:5000"   # so you can hit http://localhost:5000/status from the host
+      - "9000:9000"
     networks:
-      - monitor-net
+      - monitoring-net
 
-  edge-node-a:
+  core-aggregator-1:
     build: .
-    command: ["python", "agent.py"]
-    environment:
-      - NODE_ID=edge-node-a
-      - NODE_ROLE=edge
-      - COLLECTOR_URL=http://collector:5000/metrics
-      - REPORT_INTERVAL=2
+    container_name: core_aggregator_1
+    command: python core_aggregator.py --node-id 1 --listen-port 8001 --peers "core-aggregator-2:8002,core-aggregator-3:8003"
+    ports:
+      - "8001:8001"
     depends_on:
-      - collector
+      - cloud-server
     networks:
-      - monitor-net
+      - monitoring-net
 
-  edge-node-b:
+  core-aggregator-2:
     build: .
-    command: ["python", "agent.py"]
-    environment:
-      - NODE_ID=edge-node-b
-      - NODE_ROLE=edge
-      - COLLECTOR_URL=http://collector:5000/metrics
-      - REPORT_INTERVAL=2
+    container_name: core_aggregator_2
+    command: python core_aggregator.py --node-id 2 --listen-port 8002 --peers "core-aggregator-1:8001,core-aggregator-3:8003"
+    ports:
+      - "8002:8002"
     depends_on:
-      - collector
+      - cloud-server
     networks:
-      - monitor-net
+      - monitoring-net
 
-  core-node:
+  core-aggregator-3:
     build: .
-    command: ["python", "agent.py"]
-    environment:
-      - NODE_ID=core-node
-      - NODE_ROLE=core
-      - COLLECTOR_URL=http://collector:5000/metrics
-      - REPORT_INTERVAL=2
+    container_name: core_aggregator_3
+    command: python core_aggregator.py --node-id 3 --listen-port 8003 --peers "core-aggregator-1:8001,core-aggregator-2:8002"
+    ports:
+      - "8003:8003"
     depends_on:
-      - collector
+      - cloud-server
     networks:
-      - monitor-net
+      - monitoring-net
+
+  edge-node-1:
+    build: .
+    container_name: edge_node_1
+    command: python edge_agent.py --edge-id Edge_01 --core-host core-aggregator-1 --core-port 8001
+    depends_on:
+      - core-aggregator-1
+    networks:
+      - monitoring-net
+
+  edge-node-2:
+    build: .
+    container_name: edge_node_2
+    command: python edge_agent.py --edge-id Edge_02 --core-host core-aggregator-2 --core-port 8002
+    depends_on:
+      - core-aggregator-2
+    networks:
+      - monitoring-net
 
 networks:
-  monitor-net:
+  monitoring-net:
     driver: bridge
