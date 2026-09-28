@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY agent.py collector.py ./
+COPY . /app
 
 # Default command; overridden per-service in docker-compose.yml
 CMD ["python", "agent.py"]
