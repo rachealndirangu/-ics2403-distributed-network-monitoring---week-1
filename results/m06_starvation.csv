@@ -1,0 +1,7 @@
+queue,rep,big_request_granted,big_wait_s,starved
+barging (unfair),1,False,6.0,True
+barging (unfair),2,False,6.0,True
+barging (unfair),3,False,6.0,True
+FIFO (fair),1,True,0.1,False
+FIFO (fair),2,True,0.1,False
+FIFO (fair),3,True,0.09,False
