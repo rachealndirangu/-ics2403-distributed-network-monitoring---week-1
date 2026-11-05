@@ -1,0 +1,4 @@
+update style,increments_issued,final_counter,lost_updates,wall_s,messages,messages_per_increment
+plain read-modify-write,160,26,134,0.53,184,1.1
+distributed lock,160,160,0,2.33,716,4.5
+atomic add at home node,160,160,0,0.32,121,0.8

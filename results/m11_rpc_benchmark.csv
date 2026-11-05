@@ -1,0 +1,13 @@
+payload,implementation,mean_ms,p95_ms,jitter_ms,throughput_calls_s_8_clients,request_bytes,response_bytes,readings_received
+small: get_site,REST/JSON,1.526,1.858,0.194,938.0,21,82,
+small: get_site,RPC framework (JSON),1.738,2.074,0.296,876.0,89,102,
+small: get_site,gRPC/protobuf,0.523,0.655,0.194,3252.0,13,43,
+medium: put 100 readings,REST/JSON,2.381,3.307,0.517,705.0,21204,17,
+medium: put 100 readings,RPC framework (JSON),2.022,2.501,0.271,713.0,21284,60,
+medium: put 100 readings,gRPC/protobuf,0.628,0.834,0.112,3400.0,7803,7,
+large: put 5000 readings,REST/JSON,22.075,29.33,3.547,78.0,1068904,17,
+large: put 5000 readings,RPC framework (JSON),21.22,27.457,3.484,72.0,1068984,60,
+large: put 5000 readings,gRPC/protobuf,2.118,2.692,0.285,825.0,394875,7,
+stream 10000 readings,REST/JSON (NDJSON stream),138.1,146.5,7.3,72416.0,,,10000
+stream 10000 readings,RPC framework (one JSON array),50.1,51.1,0.7,199417.0,,,10000
+stream 10000 readings,gRPC/protobuf (server stream),680.5,783.7,114.2,14696.0,,,10000

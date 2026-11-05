@@ -1,0 +1,4 @@
+semantics,calls_issued,calls_returned_ok,calls_failed,server_executions,duplicate_executions,lost_executions,retries_sent,replies_from_dedup_cache,outcome
+maybe,200,129,71,200,0,0,0,0,calls can be lost (client gives up)
+at-least-once,200,200,0,298,98,0,98,0,counter over-counts (non-idempotent op executed again)
+at-most-once,200,200,0,200,0,0,71,71,exactly 200 executions
