@@ -1,0 +1,172 @@
+{
+  "election": [
+    {
+      "n": 2,
+      "heartbeat_interval_s": 1.0,
+      "startup_msgs": 2.33,
+      "reelection_msgs": 1,
+      "failover_s": 1.69,
+      "failover_sd": 0.57,
+      "heartbeat_msgs_per_s": 0.83,
+      "split_brain_samples": 0,
+      "bound_n_minus_1": 1,
+      "bound_n_squared": 4
+    },
+    {
+      "n": 3,
+      "heartbeat_interval_s": 1.0,
+      "startup_msgs": 9.33,
+      "reelection_msgs": 4,
+      "failover_s": 1.04,
+      "failover_sd": 0.02,
+      "heartbeat_msgs_per_s": 1.72,
+      "split_brain_samples": 0,
+      "bound_n_minus_1": 2,
+      "bound_n_squared": 9
+    },
+    {
+      "n": 4,
+      "heartbeat_interval_s": 1.0,
+      "startup_msgs": 18.33,
+      "reelection_msgs": 9.33,
+      "failover_s": 1.08,
+      "failover_sd": 0.06,
+      "heartbeat_msgs_per_s": 2.56,
+      "split_brain_samples": 0,
+      "bound_n_minus_1": 3,
+      "bound_n_squared": 16
+    },
+    {
+      "n": 5,
+      "heartbeat_interval_s": 1.0,
+      "startup_msgs": 30.67,
+      "reelection_msgs": 6,
+      "failover_s": 1.34,
+      "failover_sd": 0.54,
+      "heartbeat_msgs_per_s": 3.67,
+      "split_brain_samples": 0,
+      "bound_n_minus_1": 4,
+      "bound_n_squared": 25
+    },
+    {
+      "n": 6,
+      "heartbeat_interval_s": 1.0,
+      "startup_msgs": 49,
+      "reelection_msgs": 17.33,
+      "failover_s": 1.36,
+      "failover_sd": 0.53,
+      "heartbeat_msgs_per_s": 4.72,
+      "split_brain_samples": 0,
+      "bound_n_minus_1": 5,
+      "bound_n_squared": 36
+    },
+    {
+      "n": 4,
+      "heartbeat_interval_s": 0.25,
+      "startup_msgs": 15,
+      "reelection_msgs": 11,
+      "failover_s": 0.33,
+      "failover_sd": 0.03,
+      "heartbeat_msgs_per_s": 11.5,
+      "split_brain_samples": 0,
+      "bound_n_minus_1": 3,
+      "bound_n_squared": 16
+    },
+    {
+      "n": 4,
+      "heartbeat_interval_s": 0.5,
+      "startup_msgs": 16.67,
+      "reelection_msgs": 6.67,
+      "failover_s": 0.6,
+      "failover_sd": 0.06,
+      "heartbeat_msgs_per_s": 5.56,
+      "split_brain_samples": 0,
+      "bound_n_minus_1": 3,
+      "bound_n_squared": 16
+    },
+    {
+      "n": 4,
+      "heartbeat_interval_s": 2.0,
+      "startup_msgs": 15,
+      "reelection_msgs": 5,
+      "failover_s": 2.09,
+      "failover_sd": 0.02,
+      "heartbeat_msgs_per_s": 1.17,
+      "split_brain_samples": 0,
+      "bound_n_minus_1": 3,
+      "bound_n_squared": 16
+    }
+  ],
+  "clocks": [
+    {
+      "scenario": "no skew",
+      "traces_checked": 112,
+      "wall_clock_violations": 0,
+      "lamport_violations": 0,
+      "wall_violation_pct": 0.0,
+      "lamport_violation_pct": 0.0
+    },
+    {
+      "scenario": "skew 0/+3s/-3s",
+      "traces_checked": 113,
+      "wall_clock_violations": 38,
+      "lamport_violations": 0,
+      "wall_violation_pct": 33.6,
+      "lamport_violation_pct": 0.0
+    }
+  ],
+  "crash_stream": [
+    {
+      "scenario": "control (no failure)",
+      "rep": 1,
+      "rows_sent": 120000,
+      "distinct_rows_stored": 120000,
+      "rows_lost": 0,
+      "rows_stored_incl_dup": 120000,
+      "duplicate_rows_across_cores": 0,
+      "sender_s": 1.7,
+      "complete_s": 2.7,
+      "killed": null,
+      "new_leader": "core3"
+    },
+    {
+      "scenario": "leader crash at ~35%",
+      "rep": 1,
+      "rows_sent": 120000,
+      "distinct_rows_stored": 120000,
+      "rows_lost": 0,
+      "rows_stored_incl_dup": 122416,
+      "duplicate_rows_across_cores": 2416,
+      "sender_s": 1.9,
+      "complete_s": 3.0,
+      "killed": "core3",
+      "new_leader": "core2"
+    },
+    {
+      "scenario": "leader crash at ~35%",
+      "rep": 2,
+      "rows_sent": 120000,
+      "distinct_rows_stored": 120000,
+      "rows_lost": 0,
+      "rows_stored_incl_dup": 120084,
+      "duplicate_rows_across_cores": 84,
+      "sender_s": 1.8,
+      "complete_s": 2.9,
+      "killed": "core3",
+      "new_leader": "core2"
+    },
+    {
+      "scenario": "leader crash at ~35%",
+      "rep": 3,
+      "rows_sent": 120000,
+      "distinct_rows_stored": 120000,
+      "rows_lost": 0,
+      "rows_stored_incl_dup": 120000,
+      "duplicate_rows_across_cores": 0,
+      "sender_s": 1.8,
+      "complete_s": 2.9,
+      "killed": "core3",
+      "new_leader": "core2"
+    }
+  ]
+}

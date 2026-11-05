@@ -1,0 +1,5 @@
+scenario,rep,rows_sent,distinct_rows_stored,rows_lost,rows_stored_incl_dup,duplicate_rows_across_cores,sender_s,complete_s,killed,new_leader
+control (no failure),1,120000,120000,0,120000,0,1.7,2.7,,core3
+leader crash at ~35%,1,120000,120000,0,122416,2416,1.9,3.0,core3,core2
+leader crash at ~35%,2,120000,120000,0,120084,84,1.8,2.9,core3,core2
+leader crash at ~35%,3,120000,120000,0,120000,0,1.8,2.9,core3,core2
