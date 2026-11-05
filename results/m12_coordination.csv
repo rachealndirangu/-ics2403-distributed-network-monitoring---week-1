@@ -1,0 +1,9 @@
+replicas,rep,window_s,rows_replayed,send_s,heartbeats_total,heartbeats_per_s,theory_heartbeats_per_s,elections_started_steady,initial_leader,leader_crash_detect_and_elect_s,election_messages_after_crash,elections_started_after_crash,n_squared_bound,rows_in_db_total_core_view,leader_return_takeover_s,election_messages_on_return
+1,1,20.0,60000,0.79,0,0.0,0.0,0,1,,0,0,1,0,,
+1,2,20.0,60000,0.83,0,0.0,0.0,0,1,,0,0,1,0,,
+2,1,20.0,60000,0.8,39,1.95,2.0,1,2,0.59,1,1,4,60000,1.75,1
+2,2,20.0,60000,0.78,39,1.95,2.0,1,2,0.59,1,1,4,60000,1.75,1
+3,1,20.0,60000,0.9,79,3.95,4.0,3,3,0.84,2,1,9,60000,1.74,2
+3,2,20.0,60000,0.88,79,3.95,4.0,3,3,0.78,2,1,9,60000,1.75,2
+5,1,20.0,60000,0.86,155,7.75,8.0,10,5,0.6,7,2,25,60000,1.72,4
+5,2,20.0,60000,0.98,154,7.69,8.0,10,5,0.54,19,4,25,60000,1.73,4

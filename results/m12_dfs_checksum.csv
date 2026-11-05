@@ -1,0 +1,2 @@
+trials,corruptions_injected,reads_that_detected_and_bypassed,reads_returning_corrupt_data
+20,20,19,0

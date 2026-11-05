@@ -1,0 +1,28 @@
+// ===================================================================================================
+// DAX measures. Create them in the model view on the tables named below (Modeling > New measure).
+// Table 'telemetry' = Query 1, table 'capstone' = Query 2 (see queries.pq).
+// ===================================================================================================
+
+// ---------------- telemetry ----------------
+Rows                 = COUNTROWS ( telemetry )
+Avg Latency (ms)     = AVERAGE ( telemetry[latency_ms] )
+P95 Latency (ms)     = PERCENTILE.INC ( telemetry[latency_ms], 0.95 )
+Avg CPU %            = AVERAGE ( telemetry[cpu_pct] )
+Avg Jitter (ms)      = AVERAGE ( telemetry[jitter_ms] )
+Anomaly Rows         = SUM ( telemetry[is_anomaly] )
+Anomaly Rate %       = DIVIDE ( [Anomaly Rows], [Rows] ) * 100
+Sites Reporting      = DISTINCTCOUNT ( telemetry[site_id] )
+
+// ---------------- capstone (Milestone 12) ----------------
+Completion Time (s)  = AVERAGE ( capstone[complete_s_mean] )
+End-to-end rows/s    = AVERAGE ( capstone[e2e_rows_s_mean] )
+Wire MB              = AVERAGE ( capstone[wire_mb_mean] )
+Ingest Availability % = AVERAGE ( capstone[ingest_availability_pct_mean] )
+Rows Lost            = AVERAGE ( capstone[rows_lost_mean] )
+
+// Speed-up of proposed+improved over the flat baseline for the same sweep level (> 1 means the improvement is faster):
+Speedup vs Baseline =
+VAR lvl  = SELECTEDVALUE ( capstone[level] )
+VAR base = CALCULATE ( AVERAGE ( capstone[complete_s_mean] ), capstone[system] = "baseline-flat", capstone[level] = lvl )
+VAR imp  = CALCULATE ( AVERAGE ( capstone[complete_s_mean] ), capstone[system] = "proposed+improved", capstone[level] = lvl )
+RETURN DIVIDE ( base, imp )

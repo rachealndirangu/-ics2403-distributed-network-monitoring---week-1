@@ -1,0 +1,3 @@
+scenario,rep,rows_in,distinct_in_object_store,distinct_in_dfs,objects_object_store,objects_dfs,rows_lost,sender_s,core_complete_s,archive_complete_s,archive_lag_after_core_s,archiver_crashed_at_s,dfs_chunks,dfs_under_replicated,archiver_rows_processed_last_incarnation,write_errors
+archiver runs to completion,1,120000,120000,120000,523,523,0,2.0,3.1,17.2,14.2,,523,0,120000,0
+archiver crashed at ~50% and restarted,1,120000,120000,120000,526,526,0,2.1,3.2,17.4,14.2,8.1,526,0,43831,0

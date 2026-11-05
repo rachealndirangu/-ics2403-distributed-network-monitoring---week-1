@@ -1,0 +1,8 @@
+Rows = 120,000
+Sites Reporting = 24
+Anomaly Rows = 1,785
+Anomaly Rate % = 1.487
+Avg Latency (ms) = 21.383
+P95 Latency (ms) = 26.460
+Avg CPU % = 49.104
+Avg Jitter (ms) = 4.252
