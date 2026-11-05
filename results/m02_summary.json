@@ -1,0 +1,91 @@
+{
+  "part_a": [
+    {
+      "nodes": 1,
+      "reps": 3,
+      "throughput_mean": 72926.3,
+      "throughput_ci95": 4652.3,
+      "lat_mean_ms": 6.85,
+      "lat_p95_ms": 8.35,
+      "jitter_ms": 2.34,
+      "collector_cpu_pct": 59.7,
+      "collector_rss_mb": 39.1,
+      "jain_rows": 1.0
+    },
+    {
+      "nodes": 2,
+      "reps": 3,
+      "throughput_mean": 92575.9,
+      "throughput_ci95": 7235.6,
+      "lat_mean_ms": 10.58,
+      "lat_p95_ms": 15.72,
+      "jitter_ms": 3.68,
+      "collector_cpu_pct": 73.2,
+      "collector_rss_mb": 40.8,
+      "jain_rows": 1.0
+    },
+    {
+      "nodes": 4,
+      "reps": 3,
+      "throughput_mean": 88501.8,
+      "throughput_ci95": 3864.1,
+      "lat_mean_ms": 21.69,
+      "lat_p95_ms": 36.8,
+      "jitter_ms": 7.81,
+      "collector_cpu_pct": 75.3,
+      "collector_rss_mb": 43.4,
+      "jain_rows": 1.0
+    }
+  ],
+  "part_b": [
+    {
+      "workers": 1,
+      "mode": "single",
+      "wall_s_mean": 0.551,
+      "speedup": 1.0
+    },
+    {
+      "workers": 1,
+      "mode": "data-local",
+      "wall_s_mean": 0.548,
+      "speedup": 1.01
+    },
+    {
+      "workers": 2,
+      "mode": "cold",
+      "wall_s_mean": 0.768,
+      "speedup": 0.71
+    },
+    {
+      "workers": 2,
+      "mode": "warm",
+      "wall_s_mean": 0.644,
+      "speedup": 0.86
+    },
+    {
+      "workers": 2,
+      "mode": "data-local",
+      "wall_s_mean": 0.344,
+      "speedup": 1.6
+    },
+    {
+      "workers": 4,
+      "mode": "cold",
+      "wall_s_mean": 0.715,
+      "speedup": 0.77
+    },
+    {
+      "workers": 4,
+      "mode": "warm",
+      "wall_s_mean": 0.554,
+      "speedup": 0.99
+    },
+    {
+      "workers": 4,
+      "mode": "data-local",
+      "wall_s_mean": 0.383,
+      "speedup": 1.44
+    }
+  ],
+  "host_cores": 2
+}
