@@ -1,0 +1,7 @@
+case,ops,total_before,total_after,quota_lost,invariant_held,committed,aborted,locks_left,aborted_lock_timeout,p1_expected,p1_actual,p2_expected,p2_actual,throughput_tps,lat_mean_ms,lock_timeouts
+"no transaction protocol, p2 down",20,3400020,3399820,200,False,,,,,,,,,,,
+"2pc, p2 down",20,3400020,3400020,0,True,0,20,0,,,,,,,,
+"3pc, p2 down",20,3400020,3400020,0,True,0,20,0,,,,,,,,
+"2pc, parallel prepare, 16 clients on one hot account",240,,,,True,9,,,231,99937,99937,100063,100063,0.6,772.757,405
+"2pc, ordered prepare, 16 clients on one hot account",240,,,,True,240,,,0,98320,98320,101680,101680,103.1,134.44,0
+"3pc, ordered prepare, 16 clients on one hot account",240,,,,True,239,,,1,98327,98327,101673,101673,64.5,202.359,1
