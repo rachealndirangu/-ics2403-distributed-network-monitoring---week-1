@@ -1,0 +1,5 @@
+batch_size,reports,reports_at_core,core_messages,edge_to_core_bytes,bytes_per_report,staleness_ms,message_reduction_x
+1,1200,1200,1200,676654,563.9,29.2,1.0
+5,1200,1200,240,473932,394.9,35.5,5.0
+20,1200,1200,60,431361,359.5,41.1,20.0
+50,1200,1200,24,339368,282.8,88.8,50.0
