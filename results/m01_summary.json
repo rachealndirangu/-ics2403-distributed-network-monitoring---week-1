@@ -1,0 +1,121 @@
+{
+  "A": [
+    {
+      "node": "core-node",
+      "role": "core",
+      "cpu_percent": 1.0,
+      "mem_percent": 8.8,
+      "registered_after_s": 1.01
+    },
+    {
+      "node": "edge-node-a",
+      "role": "edge",
+      "cpu_percent": 14.1,
+      "mem_percent": 8.8,
+      "registered_after_s": 1.01
+    },
+    {
+      "node": "edge-node-b",
+      "role": "edge",
+      "cpu_percent": 1.0,
+      "mem_percent": 8.8,
+      "registered_after_s": 1.01
+    }
+  ],
+  "B": [
+    {
+      "cpus_allowed": "1 CPU",
+      "worker_processes": 1,
+      "hashes_per_s_total": 333149,
+      "sd": 11470,
+      "per_worker": 333149
+    },
+    {
+      "cpus_allowed": "1 CPU",
+      "worker_processes": 2,
+      "hashes_per_s_total": 322123,
+      "sd": 4863,
+      "per_worker": 161061
+    },
+    {
+      "cpus_allowed": "1 CPU",
+      "worker_processes": 4,
+      "hashes_per_s_total": 327021,
+      "sd": 8260,
+      "per_worker": 81755
+    },
+    {
+      "cpus_allowed": "2 CPUs",
+      "worker_processes": 1,
+      "hashes_per_s_total": 355521,
+      "sd": 13037,
+      "per_worker": 355521
+    },
+    {
+      "cpus_allowed": "2 CPUs",
+      "worker_processes": 2,
+      "hashes_per_s_total": 665040,
+      "sd": 11971,
+      "per_worker": 332520
+    },
+    {
+      "cpus_allowed": "2 CPUs",
+      "worker_processes": 4,
+      "hashes_per_s_total": 656912,
+      "sd": 12868,
+      "per_worker": 164228
+    }
+  ],
+  "C": [
+    {
+      "limit_mb": 96,
+      "request_mb": 32,
+      "result": "ok"
+    },
+    {
+      "limit_mb": 96,
+      "request_mb": 64,
+      "result": "MemoryError"
+    },
+    {
+      "limit_mb": 96,
+      "request_mb": 128,
+      "result": "MemoryError"
+    },
+    {
+      "limit_mb": 96,
+      "request_mb": 256,
+      "result": "MemoryError"
+    }
+  ],
+  "D": [
+    {
+      "payload_bytes": 18,
+      "mean_ms": 1.59,
+      "p95_ms": 1.971,
+      "jitter_ms": 0.238,
+      "mb_per_s": null
+    },
+    {
+      "payload_bytes": 1022,
+      "mean_ms": 1.573,
+      "p95_ms": 2.028,
+      "jitter_ms": 0.417,
+      "mb_per_s": 0.7
+    },
+    {
+      "payload_bytes": 65534,
+      "mean_ms": 1.704,
+      "p95_ms": 2.245,
+      "jitter_ms": 0.337,
+      "mb_per_s": 38.5
+    },
+    {
+      "payload_bytes": 1048574,
+      "mean_ms": 3.268,
+      "p95_ms": 3.791,
+      "jitter_ms": 0.371,
+      "mb_per_s": 320.9
+    }
+  ]
+}

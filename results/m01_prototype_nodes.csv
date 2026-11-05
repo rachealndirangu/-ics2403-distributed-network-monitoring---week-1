@@ -1,0 +1,4 @@
+node,role,cpu_percent,mem_percent,registered_after_s
+core-node,core,1.0,8.8,1.01
+edge-node-a,edge,14.1,8.8,1.01
+edge-node-b,edge,1.0,8.8,1.01
