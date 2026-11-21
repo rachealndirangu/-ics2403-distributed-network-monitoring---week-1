@@ -1,0 +1,13 @@
+protocol,coordinator_crash_point,rep,resolved_without_coordinator,blocked_s_while_coordinator_down,locks_held_peak,recovery_after_restart_s,participants_agree,final_outcome,invariant_held
+2pc,after_prepare,1,False,>9 (still blocked),3,1.18,True,A,True
+2pc,after_prepare,2,False,>9 (still blocked),3,1.18,True,A,True
+2pc,after_decision_log,1,False,>9 (still blocked),3,0.64,True,C,True
+2pc,after_decision_log,2,False,>9 (still blocked),3,0.68,True,C,True
+3pc,after_prepare,1,True,1.96,3,0.31,True,A,True
+3pc,after_prepare,2,True,1.96,3,0.31,True,A,True
+3pc,mid_precommit,1,True,2.06,3,0.31,True,C,True
+3pc,mid_precommit,2,True,1.95,3,0.32,True,C,True
+3pc,after_precommit,1,True,1.95,3,0.31,True,C,True
+3pc,after_precommit,2,True,2.06,3,0.31,True,C,True
+3pc,after_decision_log,1,True,2.06,3,0.31,True,C,True
+3pc,after_decision_log,2,True,2.06,3,0.31,True,C,True

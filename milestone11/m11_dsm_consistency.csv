@@ -1,0 +1,21 @@
+mode,operation,mean_ms,p95_ms,messages_per_op,invalidations_per_op,updates_per_op,stale_reads,reads,stale_pct,throughput_ops_s
+strong,"read, local hit",1.84,2.29,0.87,0.0,0.0,,,,
+strong,"read, miss (fetch via home)",5.82,8.25,2.23,0.0,0.0,,,,
+strong,write with 0 remote sharer(s),1.65,1.94,0.73,0.0,0.0,,,,
+strong,write with 1 remote sharer(s),5.13,6.85,3.83,1.0,0.0,,,,
+strong,write with 2 remote sharer(s),6.23,8.25,5.23,2.0,0.0,,,,
+strong,write with 3 remote sharer(s),7.31,8.11,6.73,3.0,0.0,,,,
+strong,"visibility test: 300 writes, 600 immediate remote reads",,,,,,0,600,0.0,
+strong,time until every node sees a new value (20 trials),11.29,12.72,,,,,,,
+strong,"workload 95% read / 5% write, 4 clients",4.97,13.83,0.29,,,,,,803.0
+strong,"workload 50% read / 50% write, 4 clients",8.31,16.58,1.11,,,,,,480.0
+eventual,"read, local hit",2.78,4.28,3.0,0.0,3.0,,,,
+eventual,"read, miss (fetch via home)",2.98,5.64,3.23,0.0,3.0,,,,
+eventual,write with 0 remote sharer(s),5.27,8.62,6.0,0.0,6.0,,,,
+eventual,write with 1 remote sharer(s),3.92,5.27,6.13,0.0,6.0,,,,
+eventual,write with 2 remote sharer(s),4.31,5.87,6.1,0.0,6.0,,,,
+eventual,write with 3 remote sharer(s),4.16,5.52,6.03,0.0,6.0,,,,
+eventual,"visibility test: 300 writes, 600 immediate remote reads",,,,,,60,600,10.0,
+eventual,time until every node sees a new value (20 trials),6.16,9.04,,,,,,,
+eventual,"workload 95% read / 5% write, 4 clients",4.26,9.09,0.18,,,,,,938.0
+eventual,"workload 50% read / 50% write, 4 clients",9.89,21.54,1.5,,,,,,404.0

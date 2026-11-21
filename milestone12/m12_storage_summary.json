@@ -1,0 +1,50 @@
+{
+  "D": [
+    {
+      "scenario": "archiver runs to completion",
+      "rep": 1,
+      "rows_in": 120000,
+      "distinct_in_object_store": 120000,
+      "distinct_in_dfs": 120000,
+      "objects_object_store": 523,
+      "objects_dfs": 523,
+      "rows_lost": 0,
+      "sender_s": 2.0,
+      "core_complete_s": 3.1,
+      "archive_complete_s": 17.2,
+      "archive_lag_after_core_s": 14.2,
+      "archiver_crashed_at_s": null,
+      "dfs_chunks": 523,
+      "dfs_under_replicated": 0,
+      "archiver_rows_processed_last_incarnation": 120000,
+      "write_errors": 0
+    },
+    {
+      "scenario": "archiver crashed at ~50% and restarted",
+      "rep": 1,
+      "rows_in": 120000,
+      "distinct_in_object_store": 120000,
+      "distinct_in_dfs": 120000,
+      "objects_object_store": 526,
+      "objects_dfs": 526,
+      "rows_lost": 0,
+      "sender_s": 2.1,
+      "core_complete_s": 3.2,
+      "archive_complete_s": 17.4,
+      "archive_lag_after_core_s": 14.2,
+      "archiver_crashed_at_s": 8.1,
+      "dfs_chunks": 526,
+      "dfs_under_replicated": 0,
+      "archiver_rows_processed_last_incarnation": 43831,
+      "write_errors": 0
+    }
+  ],
+  "C": [
+    {
+      "trials": 20,
+      "corruptions_injected": 20,
+      "reads_that_detected_and_bypassed": 19,
+      "reads_returning_corrupt_data": 0
+    }
+  ]
+}

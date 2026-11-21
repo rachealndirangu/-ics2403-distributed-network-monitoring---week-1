@@ -1,0 +1,6 @@
+experiment,load,model,throughput_jobs_s,completion_pct,lat_mean_s,lat_p95_s,lat_p99_s,compute_cores,total_cores,compute_utilization,wan_gb,cost_units,jobs_interrupted,lat_mean_ci95
+reference,1.0,host-based,21.216,100.0,0.333,0.582,0.77,4,4,0.849,4.839,1.104,0,0.007
+reference,1.0,workstation,21.218,100.0,0.187,0.316,0.47,24,24,0.142,0.0,4.0,0,0.001
+reference,1.0,server-based,21.21,99.94,0.452,0.933,1.511,4,4,0.848,4.839,1.104,0,0.019
+reference,1.0,processor-pool,21.217,100.0,0.269,0.388,0.432,5,5,0.679,4.839,1.268,0,0.001
+reference,1.0,integrated,21.218,100.0,0.203,0.309,0.328,5,29,0.611,0.484,4.88,0,0.001

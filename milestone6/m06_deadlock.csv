@@ -1,0 +1,16 @@
+policy,jobs_total,jobs_completed,completed_pct,wall_s,jobs_per_s,deadlocks_detected,victims_or_dies,client_timeouts,restarts,detect_latency_s,utilization,stuck,rep
+none (wait forever),20,1,5.0,30.09,0.03,0,0,3,0,,0.9935,True,1
+none (wait forever),20,0,0.0,30.08,0.0,0,0,4,0,,0.9977,True,2
+none (wait forever),20,0,0.0,30.08,0.0,0,0,4,0,,0.9974,True,3
+timeout-only (2.5 s),20,3,15.0,10.28,0.29,0,0,13,0,,0.9882,True,1
+timeout-only (2.5 s),20,20,100.0,6.13,3.26,0,0,7,0,,0.9803,False,2
+timeout-only (2.5 s),20,3,15.0,10.28,0.29,0,0,13,0,,0.9878,True,3
+detect+recover,20,20,100.0,1.27,15.72,1,1,0,1,0.141,0.9351,False,1
+detect+recover,20,20,100.0,1.27,15.74,1,1,0,1,0.147,0.9377,False,2
+detect+recover,20,20,100.0,1.27,15.7,1,1,0,1,0.15,0.9392,False,3
+ordered (prevention),20,20,100.0,1.11,18.08,0,0,0,0,,0.6877,False,1
+ordered (prevention),20,20,100.0,1.11,18.08,0,0,0,0,,0.6833,False,2
+ordered (prevention),20,20,100.0,1.1,18.1,0,0,0,0,,0.6772,False,3
+wait-die (prevention),20,20,100.0,1.21,16.48,0,29,0,29,,0.6088,False,1
+wait-die (prevention),20,20,100.0,1.2,16.61,0,29,0,29,,0.6694,False,2
+wait-die (prevention),20,20,100.0,1.21,16.52,0,29,0,29,,0.6669,False,3

@@ -1,0 +1,9 @@
+digraph "resource-allocation graph" {
+  rankdir=LR;
+  node [fontname=Helvetica];
+  "P0" [shape=circle];
+  "R0" [shape=box];
+  "R1" [shape=box];
+  "R1" -> "P0" [label="held by"];
+  "R0" -> "P0" [label="held by"];
+}

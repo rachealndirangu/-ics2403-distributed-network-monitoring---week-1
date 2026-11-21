@@ -1,0 +1,6 @@
+model,latency,throughput,utilization,scalability,reliability,cost,cost_B
+host-based,0.582,24.988,0.849,402.327,126.03,1.104,1.104
+workstation,0.316,31.854,0.142,0.315,153.737,4.0,0.0
+server-based,0.933,24.985,0.848,0.944,98.533,1.104,1.104
+processor-pool,0.388,31.177,0.679,0.241,11.286,1.268,1.268
+integrated,0.309,31.851,0.611,0.186,4.28,4.88,0.88

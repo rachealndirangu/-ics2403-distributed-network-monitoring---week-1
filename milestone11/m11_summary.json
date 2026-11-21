@@ -1,0 +1,372 @@
+{
+  "benchmark": [
+    {
+      "payload": "small: get_site",
+      "implementation": "REST/JSON",
+      "mean_ms": 1.526,
+      "p95_ms": 1.858,
+      "jitter_ms": 0.194,
+      "throughput_calls_s_8_clients": 938.0,
+      "request_bytes": 21,
+      "response_bytes": 82
+    },
+    {
+      "payload": "small: get_site",
+      "implementation": "RPC framework (JSON)",
+      "mean_ms": 1.738,
+      "p95_ms": 2.074,
+      "jitter_ms": 0.296,
+      "throughput_calls_s_8_clients": 876.0,
+      "request_bytes": 89,
+      "response_bytes": 102
+    },
+    {
+      "payload": "small: get_site",
+      "implementation": "gRPC/protobuf",
+      "mean_ms": 0.523,
+      "p95_ms": 0.655,
+      "jitter_ms": 0.194,
+      "throughput_calls_s_8_clients": 3252.0,
+      "request_bytes": 13,
+      "response_bytes": 43
+    },
+    {
+      "payload": "medium: put 100 readings",
+      "implementation": "REST/JSON",
+      "mean_ms": 2.381,
+      "p95_ms": 3.307,
+      "jitter_ms": 0.517,
+      "throughput_calls_s_8_clients": 705.0,
+      "request_bytes": 21204,
+      "response_bytes": 17
+    },
+    {
+      "payload": "medium: put 100 readings",
+      "implementation": "RPC framework (JSON)",
+      "mean_ms": 2.022,
+      "p95_ms": 2.501,
+      "jitter_ms": 0.271,
+      "throughput_calls_s_8_clients": 713.0,
+      "request_bytes": 21284,
+      "response_bytes": 60
+    },
+    {
+      "payload": "medium: put 100 readings",
+      "implementation": "gRPC/protobuf",
+      "mean_ms": 0.628,
+      "p95_ms": 0.834,
+      "jitter_ms": 0.112,
+      "throughput_calls_s_8_clients": 3400.0,
+      "request_bytes": 7803,
+      "response_bytes": 7
+    },
+    {
+      "payload": "large: put 5000 readings",
+      "implementation": "REST/JSON",
+      "mean_ms": 22.075,
+      "p95_ms": 29.33,
+      "jitter_ms": 3.547,
+      "throughput_calls_s_8_clients": 78.0,
+      "request_bytes": 1068904,
+      "response_bytes": 17
+    },
+    {
+      "payload": "large: put 5000 readings",
+      "implementation": "RPC framework (JSON)",
+      "mean_ms": 21.22,
+      "p95_ms": 27.457,
+      "jitter_ms": 3.484,
+      "throughput_calls_s_8_clients": 72.0,
+      "request_bytes": 1068984,
+      "response_bytes": 60
+    },
+    {
+      "payload": "large: put 5000 readings",
+      "implementation": "gRPC/protobuf",
+      "mean_ms": 2.118,
+      "p95_ms": 2.692,
+      "jitter_ms": 0.285,
+      "throughput_calls_s_8_clients": 825.0,
+      "request_bytes": 394875,
+      "response_bytes": 7
+    },
+    {
+      "payload": "stream 10000 readings",
+      "implementation": "REST/JSON (NDJSON stream)",
+      "mean_ms": 138.1,
+      "p95_ms": 146.5,
+      "jitter_ms": 7.3,
+      "throughput_calls_s_8_clients": 72416.0,
+      "request_bytes": null,
+      "response_bytes": null,
+      "readings_received": 10000
+    },
+    {
+      "payload": "stream 10000 readings",
+      "implementation": "RPC framework (one JSON array)",
+      "mean_ms": 50.1,
+      "p95_ms": 51.1,
+      "jitter_ms": 0.7,
+      "throughput_calls_s_8_clients": 199417.0,
+      "request_bytes": null,
+      "response_bytes": null,
+      "readings_received": 10000
+    },
+    {
+      "payload": "stream 10000 readings",
+      "implementation": "gRPC/protobuf (server stream)",
+      "mean_ms": 680.5,
+      "p95_ms": 783.7,
+      "jitter_ms": 114.2,
+      "throughput_calls_s_8_clients": 14696.0,
+      "request_bytes": null,
+      "response_bytes": null,
+      "readings_received": 10000
+    }
+  ],
+  "semantics": [
+    {
+      "semantics": "maybe",
+      "calls_issued": 200,
+      "calls_returned_ok": 129,
+      "calls_failed": 71,
+      "server_executions": 200,
+      "duplicate_executions": 0,
+      "lost_executions": 0,
+      "retries_sent": 0,
+      "replies_from_dedup_cache": 0,
+      "outcome": "calls can be lost (client gives up)"
+    },
+    {
+      "semantics": "at-least-once",
+      "calls_issued": 200,
+      "calls_returned_ok": 200,
+      "calls_failed": 0,
+      "server_executions": 298,
+      "duplicate_executions": 98,
+      "lost_executions": 0,
+      "retries_sent": 98,
+      "replies_from_dedup_cache": 0,
+      "outcome": "counter over-counts (non-idempotent op executed again)"
+    },
+    {
+      "semantics": "at-most-once",
+      "calls_issued": 200,
+      "calls_returned_ok": 200,
+      "calls_failed": 0,
+      "server_executions": 200,
+      "duplicate_executions": 0,
+      "lost_executions": 0,
+      "retries_sent": 71,
+      "replies_from_dedup_cache": 71,
+      "outcome": "exactly 200 executions"
+    }
+  ],
+  "dsm": [
+    {
+      "mode": "strong",
+      "operation": "read, local hit",
+      "mean_ms": 1.84,
+      "p95_ms": 2.29,
+      "messages_per_op": 0.87,
+      "invalidations_per_op": 0.0,
+      "updates_per_op": 0.0
+    },
+    {
+      "mode": "strong",
+      "operation": "read, miss (fetch via home)",
+      "mean_ms": 5.82,
+      "p95_ms": 8.25,
+      "messages_per_op": 2.23,
+      "invalidations_per_op": 0.0,
+      "updates_per_op": 0.0
+    },
+    {
+      "mode": "strong",
+      "operation": "write with 0 remote sharer(s)",
+      "mean_ms": 1.65,
+      "p95_ms": 1.94,
+      "messages_per_op": 0.73,
+      "invalidations_per_op": 0.0,
+      "updates_per_op": 0.0
+    },
+    {
+      "mode": "strong",
+      "operation": "write with 1 remote sharer(s)",
+      "mean_ms": 5.13,
+      "p95_ms": 6.85,
+      "messages_per_op": 3.83,
+      "invalidations_per_op": 1.0,
+      "updates_per_op": 0.0
+    },
+    {
+      "mode": "strong",
+      "operation": "write with 2 remote sharer(s)",
+      "mean_ms": 6.23,
+      "p95_ms": 8.25,
+      "messages_per_op": 5.23,
+      "invalidations_per_op": 2.0,
+      "updates_per_op": 0.0
+    },
+    {
+      "mode": "strong",
+      "operation": "write with 3 remote sharer(s)",
+      "mean_ms": 7.31,
+      "p95_ms": 8.11,
+      "messages_per_op": 6.73,
+      "invalidations_per_op": 3.0,
+      "updates_per_op": 0.0
+    },
+    {
+      "mode": "strong",
+      "operation": "visibility test: 300 writes, 600 immediate remote reads",
+      "mean_ms": null,
+      "p95_ms": null,
+      "messages_per_op": null,
+      "invalidations_per_op": null,
+      "updates_per_op": null,
+      "stale_reads": 0,
+      "reads": 600,
+      "stale_pct": 0.0
+    },
+    {
+      "mode": "strong",
+      "operation": "time until every node sees a new value (20 trials)",
+      "mean_ms": 11.29,
+      "p95_ms": 12.72
+    },
+    {
+      "mode": "strong",
+      "operation": "workload 95% read / 5% write, 4 clients",
+      "mean_ms": 4.97,
+      "p95_ms": 13.83,
+      "messages_per_op": 0.29,
+      "throughput_ops_s": 803.0
+    },
+    {
+      "mode": "strong",
+      "operation": "workload 50% read / 50% write, 4 clients",
+      "mean_ms": 8.31,
+      "p95_ms": 16.58,
+      "messages_per_op": 1.11,
+      "throughput_ops_s": 480.0
+    },
+    {
+      "mode": "eventual",
+      "operation": "read, local hit",
+      "mean_ms": 2.78,
+      "p95_ms": 4.28,
+      "messages_per_op": 3.0,
+      "invalidations_per_op": 0.0,
+      "updates_per_op": 3.0
+    },
+    {
+      "mode": "eventual",
+      "operation": "read, miss (fetch via home)",
+      "mean_ms": 2.98,
+      "p95_ms": 5.64,
+      "messages_per_op": 3.23,
+      "invalidations_per_op": 0.0,
+      "updates_per_op": 3.0
+    },
+    {
+      "mode": "eventual",
+      "operation": "write with 0 remote sharer(s)",
+      "mean_ms": 5.27,
+      "p95_ms": 8.62,
+      "messages_per_op": 6.0,
+      "invalidations_per_op": 0.0,
+      "updates_per_op": 6.0
+    },
+    {
+      "mode": "eventual",
+      "operation": "write with 1 remote sharer(s)",
+      "mean_ms": 3.92,
+      "p95_ms": 5.27,
+      "messages_per_op": 6.13,
+      "invalidations_per_op": 0.0,
+      "updates_per_op": 6.0
+    },
+    {
+      "mode": "eventual",
+      "operation": "write with 2 remote sharer(s)",
+      "mean_ms": 4.31,
+      "p95_ms": 5.87,
+      "messages_per_op": 6.1,
+      "invalidations_per_op": 0.0,
+      "updates_per_op": 6.0
+    },
+    {
+      "mode": "eventual",
+      "operation": "write with 3 remote sharer(s)",
+      "mean_ms": 4.16,
+      "p95_ms": 5.52,
+      "messages_per_op": 6.03,
+      "invalidations_per_op": 0.0,
+      "updates_per_op": 6.0
+    },
+    {
+      "mode": "eventual",
+      "operation": "visibility test: 300 writes, 600 immediate remote reads",
+      "mean_ms": null,
+      "p95_ms": null,
+      "messages_per_op": null,
+      "invalidations_per_op": null,
+      "updates_per_op": null,
+      "stale_reads": 60,
+      "reads": 600,
+      "stale_pct": 10.0
+    },
+    {
+      "mode": "eventual",
+      "operation": "time until every node sees a new value (20 trials)",
+      "mean_ms": 6.16,
+      "p95_ms": 9.04
+    },
+    {
+      "mode": "eventual",
+      "operation": "workload 95% read / 5% write, 4 clients",
+      "mean_ms": 4.26,
+      "p95_ms": 9.09,
+      "messages_per_op": 0.18,
+      "throughput_ops_s": 938.0
+    },
+    {
+      "mode": "eventual",
+      "operation": "workload 50% read / 50% write, 4 clients",
+      "mean_ms": 9.89,
+      "p95_ms": 21.54,
+      "messages_per_op": 1.5,
+      "throughput_ops_s": 404.0
+    }
+  ],
+  "sync": [
+    {
+      "update style": "plain read-modify-write",
+      "increments_issued": 160,
+      "final_counter": 26,
+      "lost_updates": 134,
+      "wall_s": 0.53,
+      "messages": 184,
+      "messages_per_increment": 1.1
+    },
+    {
+      "update style": "distributed lock",
+      "increments_issued": 160,
+      "final_counter": 160,
+      "lost_updates": 0,
+      "wall_s": 2.33,
+      "messages": 716,
+      "messages_per_increment": 4.5
+    },
+    {
+      "update style": "atomic add at home node",
+      "increments_issued": 160,
+      "final_counter": 160,
+      "lost_updates": 0,
+      "wall_s": 0.32,
+      "messages": 121,
+      "messages_per_increment": 0.8
+    }
+  ]
+}

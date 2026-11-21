@@ -1,0 +1,5 @@
+scenario,protocol,decision,in_doubt_after_restart,locks_restored_after_restart,recovery_s,resolved_by_coordinator,resolved_by_peers,p2_state_final,invariant_held
+"p2 crash, coordinator alive",2pc,COMMIT,1,0,1.51,0,0,COMMITTED,True
+"p2 crash, coordinator alive",3pc,COMMIT,1,0,1.52,0,0,COMMITTED,True
+p2 AND coordinator crash,2pc,COMMIT,1,1,1.72,0,1,COMMITTED,True
+p2 AND coordinator crash,3pc,COMMIT,1,1,1.93,0,1,COMMITTED,True
